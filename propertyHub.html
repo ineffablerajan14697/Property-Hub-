@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PropertyHub - Find Your Property</title>
+
+    <link rel="stylesheet" href="propertyHub.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Property<span>Hub</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#properties">Properties</a>
+            <a href="#add-property">Add Property</a>
+        </nav>
+
+        <button class="login-btn" onclick="showLogin()">
+            Login
+        </button>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                Find Your Perfect
+                <span>Property</span>
+            </h1>
+
+            <p>
+                Buy, rent or sell properties easily.
+                Find the perfect place for you.
+            </p>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by location..."
+                >
+
+                <select id="purposeFilter">
+
+                    <option value="all">Rent & Sale</option>
+
+                    <option value="Rent">
+                        For Rent
+                    </option>
+
+                    <option value="Sale">
+                        For Sale
+                    </option>
+
+                </select>
+
+                <button onclick="searchProperties()">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROPERTY SECTION -->
+
+    <section class="properties-section" id="properties">
+
+        <div class="section-heading">
+
+            <h2>Latest Properties</h2>
+
+            <p>
+                Explore properties available for rent and sale
+            </p>
+
+        </div>
+
+
+        <div
+            class="property-container"
+            id="propertyContainer"
+        ></div>
+
+    </section>
+
+
+    <!-- ADD PROPERTY -->
+
+    <section class="add-section" id="add-property">
+
+        <div class="section-heading">
+
+            <h2>List Your Property</h2>
+
+            <p>
+                Are you an owner? Add your property here.
+            </p>
+
+        </div>
+
+
+        <form id="propertyForm">
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Property Title"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Location"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <input
+                    type="number"
+                    id="price"
+                    placeholder="Price"
+                    required
+                >
+
+                <select id="purpose" required>
+
+                    <option value="">
+                        Select Purpose
+                    </option>
+
+                    <option value="Rent">
+                        Rent
+                    </option>
+
+                    <option value="Sale">
+                        Sale
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    id="type"
+                    placeholder="Property Type (Flat, House, Villa...)"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="bedrooms"
+                    placeholder="Bedrooms"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <input
+                    type="number"
+                    id="bathrooms"
+                    placeholder="Bathrooms"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="area"
+                    placeholder="Area (sq.ft)"
+                    required
+                >
+
+            </div>
+
+
+            <input
+                type="text"
+                id="image"
+                placeholder="Image URL"
+                required
+            >
+
+
+            <textarea
+                id="description"
+                placeholder="Property Description"
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Add Property
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- DETAILS MODAL -->
+
+    <div
+        class="modal"
+        id="propertyModal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close-btn"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
+
+            <img
+                id="modalImage"
+                src=""
+                alt="Property"
+            >
+
+            <div class="modal-info">
+
+                <span
+                    class="badge"
+                    id="modalPurpose"
+                ></span>
+
+                <h2 id="modalTitle"></h2>
+
+                <h3 id="modalPrice"></h3>
+
+                <p id="modalLocation"></p>
+
+                <div class="features">
+
+                    <span id="modalBedrooms"></span>
+
+                    <span id="modalBathrooms"></span>
+
+                    <span id="modalArea"></span>
+
+                </div>
+
+                <p id="modalDescription"></p>
+
+                <button
+                    class="contact-btn"
+                    onclick="contactOwner()"
+                >
+                    Contact Owner
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGIN MODAL -->
+
+    <div
+        class="modal"
+        id="loginModal"
+    >
+
+        <div class="login-box">
+
+            <button
+                class="close-btn"
+                onclick="closeLogin()"
+            >
+                ×
+            </button>
+
+            <h2>Login</h2>
+
+            <input
+                type="email"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                placeholder="Password"
+            >
+
+            <button onclick="loginUser()">
+                Login
+            </button>
+
+            <p>
+                Don't have an account?
+                <b>Sign Up</b>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <h3>PropertyHub</h3>
+
+        <p>
+            Find. Buy. Rent. Sell.
+        </p>
+
+        <p>
+            © 2026 PropertyHub
+        </p>
+
+    </footer>
+
+
+    <script src="propertyHub.js"></script>
+
+</body>
+
+
+</html>

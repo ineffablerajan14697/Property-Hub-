@@ -1,0 +1,530 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    color: #222;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: white;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+.login-btn {
+    border: none;
+    background: #2563eb;
+    color: white;
+
+    padding: 10px 22px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 550px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c")
+        center/cover;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 900px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #60a5fa;
+}
+
+.hero p {
+    font-size: 19px;
+    margin-bottom: 35px;
+}
+
+.search-box {
+    background: white;
+
+    padding: 10px;
+
+    display: flex;
+
+    gap: 10px;
+
+    border-radius: 8px;
+}
+
+.search-box input,
+.search-box select {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 15px;
+
+    font-size: 15px;
+}
+
+.search-box button {
+    background: #2563eb;
+    color: white;
+
+    border: none;
+
+    padding: 0 25px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+/* SECTION */
+
+.properties-section,
+.add-section {
+    padding: 80px 7%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+
+/* PROPERTY CARDS */
+
+.property-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+}
+
+.property-card {
+    background: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.08);
+
+    transition: .3s;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+}
+
+.property-card img {
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    margin: 10px 0;
+}
+
+.price {
+    color: #2563eb;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.location {
+    color: #777;
+    margin: 10px 0;
+}
+
+.badge {
+    display: inline-block;
+
+    background: #dcfce7;
+    color: #166534;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+.features {
+    display: flex;
+    gap: 15px;
+
+    margin: 15px 0;
+
+    color: #555;
+}
+
+.details-btn {
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+
+    background: #2563eb;
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.delete-btn {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 9px;
+
+    border: none;
+
+    background: #ef4444;
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+/* ADD PROPERTY */
+
+.add-section {
+    background: white;
+}
+
+form {
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+form input,
+form select,
+form textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 15px;
+}
+
+form textarea {
+    height: 130px;
+
+    margin: 15px 0;
+}
+
+.submit-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+/* MODAL */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.7);
+
+    z-index: 200;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal-content {
+    width: 800px;
+    max-width: 100%;
+
+    background: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 350px;
+
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 25px;
+}
+
+.modal-info h2 {
+    margin: 10px 0;
+}
+
+.modal-info h3 {
+    color: #2563eb;
+}
+
+.close-btn {
+    position: absolute;
+
+    right: 15px;
+    top: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.contact-btn {
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    background: #16a34a;
+
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+/* LOGIN */
+
+.login-box {
+    width: 400px;
+    max-width: 100%;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 10px;
+
+    position: relative;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+}
+
+.login-box input {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+}
+
+.login-box > button:not(.close-btn) {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.login-box p {
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #111827;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 40px;
+}
+
+footer p {
+    margin-top: 10px;
+    color: #aaa;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        padding: 14px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+}
